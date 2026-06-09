@@ -148,11 +148,11 @@
                 </div>
                 <div class="experience__card">
                     <div class="experience__photo">
-                        <img src="assets/3.png" alt="50-60 High-Level Men in the Room" loading="lazy">
+                        <img src="assets/3.png" alt="High-Level Men in the Room" loading="lazy">
                     </div>
                     <div class="experience__card-body">
                         <span class="experience__num">03</span>
-                        <h3>50-60 High-Level Men <span class="headline-gold">in the Room</span></h3>
+                        <h3>High-Level Men <span class="headline-gold">in the Room</span></h3>
                         <p>The caliber of the room is part of the experience. Every man at the table is a business owner or leader. Curated, not open-door.</p>
                     </div>
                 </div>
@@ -186,8 +186,19 @@
                 <span class="section-label">2026 Schedule</span>
                 <h2 class="section-title">Upcoming Lunches</h2>
             </div>
-            <div class="dates__scenes" id="dates-grid">
-                <!-- Populated by script.js -->
+            <div class="dates__banner">
+                <div class="dates__banner-left">
+                    <div class="dates__banner-day">AUG 4</div>
+                </div>
+                <div class="dates__banner-divider"></div>
+                <div class="dates__banner-right">
+                    <div class="dates__banner-eyebrow">Tuesday, August 4, 2026</div>
+                    <div class="dates__banner-title">Kingdom Business<br>Lunch</div>
+                    <div class="dates__banner-details">
+                        12:00 &ndash; 2:00 PM<br>
+                        RUK HQ &middot; Dallas&ndash;Fort Worth
+                    </div>
+                </div>
             </div>
             <div class="dates__cta-wrap">
                 <div class="pulse-wrap">
@@ -247,8 +258,10 @@
                     <div class="testimonial__spot"></div>
                     <div class="testimonial__tl"></div>
                     <div class="testimonial__br"></div>
-                    <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <span class="testimonial__open">&ldquo;</span>
+                    <div class="testimonial__header">
+                        <span class="testimonial__badge">Review 01</span>
+                        <span class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
                     <p class="testimonial__text">Coach John was incredibly intelligent, but more than that he was disciplined. He held us accountable for every poor decision and taught us to pay attention to the details, because details matter. This man changed my understanding of strength and discipline. He pushed me to communicate better, listen more, and lead my family with humility instead of ego. Faith, family, fitness, and finances all start in the heart of a man. Grateful for the correction and the growth.</p>
                     <div class="testimonial__author">
                         <div class="testimonial__dash"></div>
@@ -259,8 +272,10 @@
                     <div class="testimonial__spot"></div>
                     <div class="testimonial__tl"></div>
                     <div class="testimonial__br"></div>
-                    <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <span class="testimonial__open">&ldquo;</span>
+                    <div class="testimonial__header">
+                        <span class="testimonial__badge">Review 02</span>
+                        <span class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
                     <p class="testimonial__text">The most transformative thing I&rsquo;ve ever done in my life. God&rsquo;s timing is perfect, coming here was what I needed at the right time. I recommend RUK for every man, regardless of faith, background or status. If you&rsquo;re willing to be a better man, experience Rise Up Kings and see how your life can change.</p>
                     <div class="testimonial__author">
                         <div class="testimonial__dash"></div>
@@ -352,44 +367,15 @@
 
                         <div class="rsvp-divider"></div>
 
-                        <!-- DATE SELECTION -->
-                        <div class="form-group">
-                            <label>Which date(s) are you attending? <span class="req">*</span></label>
-                            <div class="date-checkboxes" id="date-checkboxes">
-                                <label class="date-checkbox">
-                                    <input type="checkbox" name="dates" value="2026-08-04">
-                                    <span class="date-checkbox__box"></span>
-                                    <span class="date-checkbox__label">
-                                        <strong>August 4, 2026</strong>
-                                        <em>Tuesday &middot; 12:00&ndash;2:00 PM</em>
-                                    </span>
-                                </label>
-                                <label class="date-checkbox">
-                                    <input type="checkbox" name="dates" value="2026-09-01">
-                                    <span class="date-checkbox__box"></span>
-                                    <span class="date-checkbox__label">
-                                        <strong>September 1, 2026</strong>
-                                        <em>Tuesday &middot; 12:00&ndash;2:00 PM</em>
-                                    </span>
-                                </label>
-                                <label class="date-checkbox">
-                                    <input type="checkbox" name="dates" value="2026-10-06">
-                                    <span class="date-checkbox__box"></span>
-                                    <span class="date-checkbox__label">
-                                        <strong>October 6, 2026</strong>
-                                        <em>Tuesday &middot; 12:00&ndash;2:00 PM</em>
-                                    </span>
-                                </label>
-                                <label class="date-checkbox">
-                                    <input type="checkbox" name="dates" value="2026-11-03">
-                                    <span class="date-checkbox__box"></span>
-                                    <span class="date-checkbox__label">
-                                        <strong>November 3, 2026</strong>
-                                        <em>Tuesday &middot; 12:00&ndash;2:00 PM</em>
-                                    </span>
-                                </label>
+                        <!-- DATE CONFIRMATION -->
+                        <input type="hidden" name="dates" value="2026-08-04">
+                        <div class="date-confirm">
+                            <div class="date-confirm__check">&#10003;</div>
+                            <div class="date-confirm__info">
+                                <div class="date-confirm__label">You&rsquo;re registering for</div>
+                                <div class="date-confirm__date">Tuesday, August 4, 2026</div>
+                                <div class="date-confirm__meta">12:00&ndash;2:00 PM &middot; RUK HQ, Dallas&ndash;Fort Worth</div>
                             </div>
-                            <span class="form-error-dates" id="dates-error" style="display:none;">Please select at least one date.</span>
                         </div>
 
                         <div class="form-group guest-question">

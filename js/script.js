@@ -240,7 +240,7 @@ async function handleFormSubmit(e) {
 
     // Collect values
     const selectedDates = Array.from(
-        form.querySelectorAll('input[name="dates"]:checked')
+        form.querySelectorAll('input[name="dates"]:checked, input[name="dates"][type="hidden"]')
     ).map(cb => cb.value);
 
     const bringingGuest = (

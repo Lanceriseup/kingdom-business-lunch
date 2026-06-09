@@ -794,6 +794,115 @@ em {
     margin-bottom: 3rem;
 }
 
+.dates__banner {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(201,168,76,0.32);
+    background: #0f0d08;
+    box-shadow: 0 0 60px rgba(201,168,76,0.09);
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    margin-bottom: 3rem;
+}
+
+.dates__banner::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,168,76,0.8), transparent);
+}
+
+.dates__banner-left {
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.dates__banner-divider {
+    background: rgba(201,168,76,0.18);
+    align-self: stretch;
+}
+
+.dates__banner-right {
+    padding: 4rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.25rem;
+    text-align: left;
+}
+
+
+.dates__banner-day {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 8rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--gold);
+    filter: drop-shadow(0 0 30px rgba(201,168,76,0.45));
+    position: relative;
+}
+
+.dates__banner-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.dates__banner-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.05;
+    color: var(--white);
+}
+
+.dates__banner-details {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+}
+
+.dates__banner-details strong {
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+}
+
+@media (max-width: 640px) {
+    .dates__banner {
+        grid-template-columns: 1fr;
+    }
+    .dates__banner-divider {
+        width: auto;
+        height: 1px;
+        align-self: auto;
+    }
+    .dates__banner-left,
+    .dates__banner-right {
+        padding: 2.5rem 2rem;
+        text-align: center;
+        align-items: center;
+    }
+    .dates__banner-day {
+        font-size: 7rem;
+    }
+    .dates__banner-right {
+        align-items: center;
+    }
+}
+
 .date-scene {
     position: relative;
     overflow: hidden;
@@ -1117,22 +1226,31 @@ em {
     border-right: 1.5px solid rgba(201,168,76,0.45);
 }
 
-.testimonial__stars {
+.testimonial__header {
     display: flex;
-    gap: 3px;
-    color: var(--gold);
-    font-size: 0.9rem;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 1.75rem;
     position: relative;
 }
 
-.testimonial__open {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 5rem;
-    line-height: 0.8;
-    color: rgba(201,168,76,0.2);
-    display: block;
-    margin-bottom: 1rem;
+.testimonial__badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,168,76,0.10);
+    border: 1px solid rgba(201,168,76,0.28);
+    padding: 0.35rem 0.85rem;
+    border-radius: 3px;
+}
+
+.testimonial__stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
     position: relative;
 }
 
@@ -1324,95 +1442,55 @@ em {
     color: var(--text-primary);
 }
 
-/* DATE CHECKBOXES */
-.date-checkboxes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+/* DATE CONFIRMATION */
+.date-confirm {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.28);
+    border-radius: var(--radius);
     margin-top: 0.35rem;
 }
 
-.date-checkbox {
+.date-confirm__check {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    border: 1.5px solid rgba(201,168,76,0.45);
     display: flex;
     align-items: center;
-    gap: 0.9rem;
-    padding: 1rem 1.25rem;
-    background: var(--dark-alt);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius);
-    cursor: pointer;
-    user-select: none;
-    transition: border-color var(--transition), background var(--transition);
-}
-
-.date-checkbox:hover {
-    border-color: var(--border-gold);
-    background: var(--dark-card);
-}
-
-.date-checkbox:has(input:checked) {
-    border-color: var(--gold);
-    background: var(--gold-subtle);
-}
-
-.date-checkbox input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-    pointer-events: none;
-}
-
-.date-checkbox__box {
-    width: 18px;
-    height: 18px;
-    border: 1.5px solid var(--text-muted);
-    border-radius: 3px;
-    flex-shrink: 0;
-    position: relative;
-    transition: border-color var(--transition), background var(--transition);
-}
-
-.date-checkbox:has(input:checked) .date-checkbox__box {
-    background: var(--gold);
-    border-color: var(--gold);
-}
-
-.date-checkbox:has(input:checked) .date-checkbox__box::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10px;
-    height: 6px;
-    border-left: 2px solid #0A0A0A;
-    border-bottom: 2px solid #0A0A0A;
-    transform: translate(-50%, -60%) rotate(-45deg);
-}
-
-.date-checkbox__label {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-}
-
-.date-checkbox__label strong {
-    color: var(--text-primary);
-    font-size: 0.88rem;
-    font-weight: 600;
-    transition: color var(--transition);
-    display: block;
-}
-
-.date-checkbox:has(input:checked) .date-checkbox__label strong {
+    justify-content: center;
     color: var(--gold);
+    font-size: 1rem;
+    font-weight: 700;
+    flex-shrink: 0;
 }
 
-.date-checkbox__label em {
-    color: var(--text-muted);
-    font-size: 0.74rem;
-    font-style: normal;
-    display: block;
+.date-confirm__label {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.38);
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+.date-confirm__date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--gold);
+    line-height: 1;
+}
+
+.date-confirm__meta {
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.42);
+    margin-top: 0.25rem;
 }
 
 .form-error-dates {
@@ -1819,22 +1897,6 @@ em {
         grid-template-columns: 1fr;
     }
 
-    .date-checkboxes {
-        grid-template-columns: 1fr;
-        gap: 0.45rem;
-    }
-
-    .date-checkbox {
-        padding: 0.65rem 0.9rem;
-    }
-
-    .date-checkbox__label strong {
-        font-size: 0.79rem;
-    }
-
-    .date-checkbox__label em {
-        font-size: 0.68rem;
-    }
 
     #submit-btn {
         padding: 0.9rem 2rem;
@@ -1995,13 +2057,6 @@ em {
         padding: 1.5rem 1.35rem;
     }
 
-    .testimonial__open {
-        display: none;
-    }
-
-    .testimonial__stars {
-        margin-bottom: 0.85rem;
-    }
 
     .testimonial__text {
         font-size: 0.83rem;
