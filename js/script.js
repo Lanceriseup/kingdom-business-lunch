@@ -9,7 +9,7 @@
 // CONFIG — update these before going live
 // -----------------------------------------------
 const CONFIG = {
-    GHL_WEBHOOK_URL: 'https://services.leadconnectorhq.com/hooks/bu8wN5yl1ERjTNqwER70/webhook-trigger/c23fe27a-b46e-43fc-8cae-40d3e95b6791',
+    API_URL: '/api/rsvp',
     EVENT_DATES: [
         { value: '2026-08-04', month: 'August',    day: '4',  year: '2026' },
         { value: '2026-09-01', month: 'September', day: '1',  year: '2026' },
@@ -298,17 +298,10 @@ async function handleFormSubmit(e) {
     try {
         fireConversionEvents(payload);
 
-        console.log('[KBL] Submitting payload:', payload);
-
-        const params = new URLSearchParams();
-        Object.entries(payload).forEach(([key, val]) => {
-            params.append(key, Array.isArray(val) ? val.join(', ') : (val ?? ''));
-        });
-
-        await fetch(CONFIG.GHL_WEBHOOK_URL, {
+        await fetch(CONFIG.API_URL, {
             method: 'POST',
-            mode: 'no-cors',
-            body: params,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
         });
 
         showConfirmation();
