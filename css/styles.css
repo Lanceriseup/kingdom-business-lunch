@@ -1039,6 +1039,18 @@ em {
     gap: 1rem;
 }
 
+.dates__cant-attend {
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.dates__cant-attend a {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
 
 
 /* ==============================================
@@ -1576,6 +1588,18 @@ em {
 }
 
 /* CONFIRMATION SCREEN */
+.rsvp__cant-attend {
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.rsvp__cant-attend a {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
 .rsvp__confirmation {
     text-align: center;
     padding: 4.5rem 2rem;
