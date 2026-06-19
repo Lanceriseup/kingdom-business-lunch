@@ -230,7 +230,7 @@ em {
 .hero__bg-img {
     position: absolute;
     inset: 0;
-    background: url('../assets/Hero%20BG.jpg') center center / cover no-repeat;
+    background: url('../assets/hero-bg.jpg') center center / cover no-repeat;
     filter: grayscale(100%) brightness(1.15);
     z-index: 0;
     pointer-events: none;
