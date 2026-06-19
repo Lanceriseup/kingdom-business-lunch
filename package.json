@@ -1,0 +1,10 @@
+{
+  "name": "kingdom-business-lunch",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kingdom Business Lunch landing page — Rise Up Kings",
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  }
+}
