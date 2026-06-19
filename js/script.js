@@ -9,7 +9,7 @@
 // CONFIG — update these before going live
 // -----------------------------------------------
 const CONFIG = {
-    GHL_WEBHOOK_URL: 'YOUR_GHL_WEBHOOK_URL', // Replace with your GHL webhook endpoint
+    API_URL: '/api/rsvp',
     EVENT_DATES: [
         { value: '2026-08-04', month: 'August',    day: '4',  year: '2026' },
         { value: '2026-09-01', month: 'September', day: '1',  year: '2026' },
@@ -257,8 +257,13 @@ async function handleFormSubmit(e) {
         company:      form.company.value.trim(),
         role:         form.role.value.trim(),
         dates:        selectedDates,
+        date_attending: selectedDates.map(d => {
+            const dt = new Date(d + 'T00:00:00');
+            return dt.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        }).join(', '),
         industry:     (form.industry    ? form.industry.value.trim()    : ''),
         city:         (form.city        ? form.city.value.trim()        : ''),
+        heard_about:  (form.heard_about ? form.heard_about.value.trim() : ''),
         bringingGuest,
         guest1Name:   (bringingGuest === 'yes' && form.guest1Name  ? form.guest1Name.value.trim()  : ''),
         guest1Email:  (bringingGuest === 'yes' && form.guest1Email ? form.guest1Email.value.trim().toLowerCase() : ''),
@@ -293,7 +298,7 @@ async function handleFormSubmit(e) {
     try {
         fireConversionEvents(payload);
 
-        await fetch(CONFIG.GHL_WEBHOOK_URL, {
+        await fetch(CONFIG.API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
@@ -324,9 +329,9 @@ async function handleFormSubmit(e) {
 }
 
 function showConfirmation() {
-    const formEl     = document.getElementById('rsvp-form');
+    const cardEl     = document.getElementById('rsvp-form-card');
     const confirmEl  = document.getElementById('rsvp-confirmation');
-    if (formEl)    formEl.style.display = 'none';
+    if (cardEl)    cardEl.style.display = 'none';
     if (confirmEl) {
         confirmEl.style.display = 'block';
         confirmEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
