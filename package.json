@@ -4,6 +4,9 @@
   "private": true,
   "description": "Kingdom Business Lunch landing page — Rise Up Kings",
   "type": "module",
+  "scripts": {
+    "dev": "node dev-server.js"
+  },
   "engines": {
     "node": "22.x"
   }

@@ -304,7 +304,10 @@ async function handleFormSubmit(e) {
             body: JSON.stringify(payload),
         });
 
-        showConfirmation();
+        const dateParam = selectedDates.length > 0
+            ? '?dates=' + encodeURIComponent(selectedDates.join(','))
+            : '';
+        window.location.href = '/confirmation.html' + dateParam;
 
     } catch (err) {
         console.error('[KBL] Submission error:', err);
