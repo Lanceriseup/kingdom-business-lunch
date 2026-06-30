@@ -322,7 +322,7 @@ async function handleFormSubmit(e) {
             errEl.className = 'form-error-inline';
             errEl.style.textAlign = 'center';
             errEl.style.marginTop = '0.5rem';
-            errEl.textContent = 'Something went wrong. Please try again or email us directly at info@riseupkings.com';
+            errEl.textContent = 'Something went wrong. Please try again or email us directly at support@riseupkings.com';
             submitBtn.after(errEl);
         }
     }
